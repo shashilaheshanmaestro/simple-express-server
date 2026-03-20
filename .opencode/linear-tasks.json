@@ -1,0 +1,53 @@
+{
+  "tasks": [
+    {
+      "issueId": "TODO-001",
+      "title": "Set up project structure and dependencies",
+      "status": "Done",
+      "description": "Initialize the Node.js project with package.json, install Express, install test dependencies (Jest + Supertest), configure scripts, and set up ESLint/Prettier if desired.\n\nAcceptance criteria:\n- package.json exists with correct scripts (start, test)\n- Express, Jest, and Supertest are listed as dependencies/devDependencies\n- Project runs without errors\n\nEstimated: 15 minutes",
+      "estimate": "15min"
+    },
+    {
+      "issueId": "TODO-002",
+      "title": "Implement in-memory Todo data store",
+      "status": "Done",
+      "description": "Create a simple in-memory data store (array/map) for todos with CRUD helper functions: getAll, getById, create, update, delete.\n\nAcceptance criteria:\n- todos.js (or todos.ts) module exports the CRUD helpers\n- Each todo has: id (auto-increment or UUID), title (string), completed (boolean), createdAt (ISO timestamp)\n- All helpers work correctly in isolation\n\nEstimated: 20 minutes",
+      "estimate": "20min"
+    },
+    {
+      "issueId": "TODO-003",
+      "title": "Implement Todo REST API routes",
+      "status": "Done",
+      "description": "Create Express router with the following endpoints:\n- GET    /todos         – list all todos\n- GET    /todos/:id     – get single todo\n- POST   /todos         – create a new todo\n- PUT    /todos/:id     – update a todo (title / completed)\n- DELETE /todos/:id     – delete a todo\n\nAcceptance criteria:\n- All routes return correct HTTP status codes (200, 201, 404, 400)\n- Response bodies are JSON\n- 404 returned when todo not found\n\nEstimated: 30 minutes",
+      "estimate": "30min"
+    },
+    {
+      "issueId": "TODO-004",
+      "title": "Wire up Express app entry point",
+      "status": "Done",
+      "description": "Create app.js (Express app config + router mounting) and server.js (HTTP listen). Separate app from server to make testing easier.\n\nAcceptance criteria:\n- app.js exports the Express app\n- server.js starts the HTTP server on a configurable port (default 3000)\n- JSON body parsing middleware is applied\n- `npm start` launches the server\n\nEstimated: 15 minutes",
+      "estimate": "15min"
+    },
+    {
+      "issueId": "TODO-005",
+      "title": "Write unit tests for the data store",
+      "status": "Done",
+      "description": "Use Jest to unit-test the in-memory store helpers: create, read, update, delete, and edge cases (not-found).\n\nAcceptance criteria:\n- At least one test per CRUD operation\n- Edge cases: get/update/delete non-existent id returns null/undefined\n- All tests pass with `npm test`\n\nEstimated: 20 minutes",
+      "estimate": "20min"
+    },
+    {
+      "issueId": "TODO-006",
+      "title": "Write integration tests for the REST API",
+      "status": "Done",
+      "description": "Use Jest + Supertest to integration-test all REST endpoints against the Express app.\n\nAcceptance criteria:\n- Tests cover: list todos, create todo, get by id, update todo, delete todo\n- Tests cover 404 responses for missing ids\n- Tests cover 400 responses for invalid input\n- All tests pass with `npm test`\n\nEstimated: 30 minutes",
+      "estimate": "30min"
+    },
+    {
+      "issueId": "TODO-007",
+      "title": "Add input validation and error handling middleware",
+      "status": "Done",
+      "description": "Add request validation (title must be non-empty string) and a global error-handling middleware that returns structured JSON errors.\n\nAcceptance criteria:\n- POST /todos with missing/empty title returns 400 with descriptive message\n- Unhandled errors return 500 with JSON body (no stack trace in production)\n- Existing tests still pass\n\nEstimated: 20 minutes",
+      "estimate": "20min"
+    }
+  ]
+}
